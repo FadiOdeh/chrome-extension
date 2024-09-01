@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Quick Login Code Fetcher",
+    "version": "1.0",
+    "description": "Fetches login codes from your email quickly",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "identity"
+    ],
+    "host_permissions": [
+      "https://mail.google.com/",
+      "https://www.googleapis.com/"
+    ],
+    "oauth2": {
+      "client_id": "999149321346-lef2lpediqh3hkplqpqt5iv19f4m9omb.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/gmail.readonly"
+      ]
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "quickcode.png",
+      "32": "quickcode.png",
+      "48": "quickcode.png",
+      "128": "quickcode.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+
+  }

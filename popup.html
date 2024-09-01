@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCode - Login Code Fetcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            width: 350px;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background-color: #4299e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo i {
+            font-size: 40px;
+            color: #ffffff;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        #fetchCode {
+            background-color: #4299e1;
+            color: white;
+        }
+        #fetchCode:hover {
+            background-color: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.3);
+        }
+        #insertCode {
+            background-color: #48bb78;
+            color: white;
+            display: none;
+        }
+        #insertCode:hover {
+            background-color: #38a169;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(72, 187, 120, 0.3);
+        }
+        #copyCode {
+            background-color: #805ad5;
+            color: white;
+            display: none;
+        }
+        #copyCode:hover {
+            background-color: #6b46c1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(128, 90, 213, 0.3);
+        }
+        #loadingIndicator {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #4299e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #statusDisplay {
+            text-align: center;
+            margin-top: 16px;
+            min-height: 20px;
+            color: #718096;
+            font-size: 14px;
+        }
+        #codeDisplay {
+            background-color: #edf2f7;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        #codeDisplay p:first-child {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        #codeValue {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-hand-rock"></i>
+        </div>
+        <h1>QuickCode</h1>
+        <button id="fetchCode">
+            <i class="fas fa-envelope"></i>
+            Fetch Login Code
+        </button>
+        <div id="loadingIndicator"></div>
+        <p id="statusDisplay"></p>
+        <div id="codeDisplay">
+            <p>Your Login Code:</p>
+            <p id="codeValue"></p>
+        </div>
+        <button id="insertCode">
+            <i class="fas fa-sign-in-alt"></i>
+            Insert Code
+        </button>
+        <button id="copyCode">
+            <i class="fas fa-copy"></i>
+            Copy Code
+        </button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
